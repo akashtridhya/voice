@@ -1,0 +1,825 @@
+{
+	"info": {
+		"_postman_id": "d69418a5-f443-4c77-957e-c4a5acbf92c6",
+		"name": "voice.development",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Usermanagement",
+					"item": [
+						{
+							"name": "User List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}users/retrieve",
+									"host": [
+										"{{base-url}}users"
+									],
+									"path": [
+										"retrieve"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "statusordelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"a00ac689-8748-43e0-b0fd-bfb59d3c2e3f\",\r\n    \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}users/statusordelete",
+									"host": [
+										"{{base-url}}users"
+									],
+									"path": [
+										"statusordelete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "General Management",
+					"item": [
+						{
+							"name": "Terms And Conditions",
+							"item": [
+								{
+									"name": "Get Terms and Conditions",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{base-url}}general/termsandcoditions/retrive",
+											"host": [
+												"{{base-url}}general"
+											],
+											"path": [
+												"termsandcoditions",
+												"retrive"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Persist Terms and Conditions",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{accessToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"Id\" :\"bb61d3de-8a94-432a-b8b5-4bd409a4f334\",\r\n  \"termsAndConditions\": \"<html><head><head><body></body></html>\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}general/termsandconditions/persist",
+											"host": [
+												"{{base-url}}general"
+											],
+											"path": [
+												"termsandconditions",
+												"persist"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = pm.response.json().data.token;\r",
+											"console.log(data);\r",
+											"pm.environment.set(\"accessToken\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"Abc@12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/login",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = pm.response.json().data.token;",
+											"console.log(data);",
+											"pm.environment.set(\"accessToken\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"akash27limbani\",\r\n  \"firstName\": \"Akash\",\r\n  \"lastName\": \"Limbani\",\r\n  \"emailId\": \"lakash2710@gmail.com\",\r\n  \"password\": \"Abc@12345\",\r\n  \"role\": 1,\r\n  \"fbId\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/register",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"token\": \"2yfrty68f6wpxaSLDCNhDT1M0R7jmaKYArYXDT6ezYh8hBEJcYoGDyOltmZqAaRy+QpGVWrQO8Vgrk77eQXG5romuRXmo+FmPM4oEXaQ0OHTWVG5e4ztPBAVFIiWXVY+zsYjgS4aXrxUdY0uVO+bvHsLWFOK7Gl+rEb0+pp8up42fNIKIkNbw4HrTBQO88jOGpEZa7P11qaDBwJTolsPiySXrwmhCYyEh/Ht/pHZ18Yra7bQhDqaKqEsd+gAnBbKIK4SyvBLAR9oe7HgolO/nHc9pr7Kj2SzCJFGn3UzHZke42TtZk8h5/ej129WsJnuFyn5D+AKeRGAwAFVXgd7NY3bhLdRnHw6RUEseeMMEpMS+R0G/w2WAnHm72Lbucwb\",\r\n  \"password\": \"Abcd@12345\",\r\n  \"confirmPassword\": \"Abcd@12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/reset_password",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"reset_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgot password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"emailId\": \"akash.l@yudiz.in\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/forgot_password",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"forgot_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"Abc@12345\",\r\n  \"confirmPassword\": \"Abc@12345\",\r\n  \"currentPassword\": \"Abcd@12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/change_password",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"change_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}account/profile/retrieve",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile",
+										"retrieve"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"cb111931-96ee-4edf-b325-8319f7b174ba\",\r\n    \"username\":\"JonRug\",\r\n  \"firstName\": \"JOn\",\r\n  \"lastName\": \"Rug\",\r\n  \"email\": \"akash.l@yudiz.in\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/profile/update",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update profile picture",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Yudiz Solutions/OneDrive/Pictures/Screenshots/Screenshot (11).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base-url}}account/profile_picture/update",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile_picture",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove profile picture",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}account/profile_picture/remove",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile_picture",
+										"remove"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Mobile",
+			"item": [
+				{
+					"name": "Genaral",
+					"item": [
+						{
+							"name": "Terms and Conditions",
+							"item": [
+								{
+									"name": "Terms and Conditions",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}general/mobile/termsandcoditions/retrive",
+											"host": [
+												"{{base-url}}general"
+											],
+											"path": [
+												"mobile",
+												"termsandcoditions",
+												"retrive"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "account",
+					"item": [
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = pm.response.json().data.token;\r",
+											"console.log(data);\r",
+											"pm.environment.set(\"accessToken\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"Abc@12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/login",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = pm.response.json().data.token;",
+											"console.log(data);",
+											"pm.environment.set(\"accessToken\", data);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"akash27limbani\",\r\n  \"firstName\": \"Akash\",\r\n  \"lastName\": \"Limbani\",\r\n  \"emailId\": \"lakash2710@gmail.com\",\r\n  \"password\": \"Abc@12345\",\r\n  \"role\": 1,\r\n  \"fbId\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/register",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"token\": \"2yfrty68f6wpxaSLDCNhDT1M0R7jmaKYArYXDT6ezYh8hBEJcYoGDyOltmZqAaRy+QpGVWrQO8Vgrk77eQXG5romuRXmo+FmPM4oEXaQ0OHTWVG5e4ztPBAVFIiWXVY+zsYjgS4aXrxUdY0uVO+bvHsLWFOK7Gl+rEb0+pp8up42fNIKIkNbw4HrTBQO88jOGpEZa7P11qaDBwJTolsPiySXrwmhCYyEh/Ht/pHZ18Yra7bQhDqaKqEsd+gAnBbKIK4SyvBLAR9oe7HgolO/nHc9pr7Kj2SzCJFGn3UzHZke42TtZk8h5/ej129WsJnuFyn5D+AKeRGAwAFVXgd7NY3bhLdRnHw6RUEseeMMEpMS+R0G/w2WAnHm72Lbucwb\",\r\n  \"password\": \"Abcd@12345\",\r\n  \"confirmPassword\": \"Abcd@12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/reset_password",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"reset_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgot password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"emailId\": \"akash.l@yudiz.in\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/forgot_password",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"forgot_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"Abc@12345\",\r\n  \"confirmPassword\": \"Abc@12345\",\r\n  \"currentPassword\": \"Abcd@12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/change_password",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"change_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}account/profile/retrieve",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile",
+										"retrieve"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"cb111931-96ee-4edf-b325-8319f7b174ba\",\r\n    \"username\":\"JonRug\",\r\n  \"firstName\": \"JOn\",\r\n  \"lastName\": \"Rug\",\r\n  \"email\": \"akash.l@yudiz.in\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}account/profile/update",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update profile picture",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Yudiz Solutions/OneDrive/Pictures/Screenshots/Screenshot (11).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base-url}}account/profile_picture/update",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile_picture",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove profile picture",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}account/profile_picture/remove",
+									"host": [
+										"{{base-url}}account"
+									],
+									"path": [
+										"profile_picture",
+										"remove"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

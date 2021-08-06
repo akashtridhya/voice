@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="app_name" xml:space="preserve">
+    <value>The Voice</value>
+  </data>
+  <data name="bad_response_account_delete" xml:space="preserve">
+    <value>Your account is deleted by the administrator.</value>
+  </data>
+  <data name="bad_response_account_inactive" xml:space="preserve">
+    <value>Your account is not active.</value>
+  </data>
+  <data name="bad_response_account_not_confirmed" xml:space="preserve">
+    <value>Please confirm your email to continue.</value>
+  </data>
+  <data name="bad_response_addresslinetwo_required" xml:space="preserve">
+    <value>Address Line two is required field</value>
+  </data>
+  <data name="bad_response_amount_required" xml:space="preserve">
+    <value>Amount is required field</value>
+  </data>
+  <data name="bad_response_application_number_required" xml:space="preserve">
+    <value>Application number is required field.</value>
+  </data>
+  <data name="bad_response_applyingparty_required" xml:space="preserve">
+    <value>Applying Party is required field.</value>
+  </data>
+  <data name="bad_response_checksum_invalid" xml:space="preserve">
+    <value>Checksum Is Invalid</value>
+  </data>
+  <data name="bad_response_cityid_required" xml:space="preserve">
+    <value>City Id is required field.</value>
+  </data>
+  <data name="bad_response_code_required" xml:space="preserve">
+    <value>Code is required field.</value>
+  </data>
+  <data name="bad_response_company_tariff_is_dafault_required" xml:space="preserve">
+    <value>Company tariff Isdefault is required field.</value>
+  </data>
+  <data name="bad_response_company_tariff_required" xml:space="preserve">
+    <value>Company Tariff is required field.</value>
+  </data>
+  <data name="bad_response_confirm_password_required" xml:space="preserve">
+    <value>Confirm Password is required field</value>
+  </data>
+  <data name="bad_response_details_not_found" xml:space="preserve">
+    <value>Details not found for provided Id.</value>
+  </data>
+  <data name="bad_response_device_id_required" xml:space="preserve">
+    <value>Device Id is required field</value>
+  </data>
+  <data name="bad_response_device_type_required" xml:space="preserve">
+    <value>Device Type is required field</value>
+  </data>
+  <data name="bad_response_digitalsignature_required" xml:space="preserve">
+    <value>Customer Signature is required field</value>
+  </data>
+  <data name="bad_response_email_required" xml:space="preserve">
+    <value>EmailId field is required</value>
+  </data>
+  <data name="bad_response_enter_valid_upload_type" xml:space="preserve">
+    <value>Please enter valid type.</value>
+  </data>
+  <data name="bad_response_fbToken_required" xml:space="preserve">
+    <value>Facebook token is required.</value>
+  </data>
+  <data name="bad_response_file_required" xml:space="preserve">
+    <value>File is required.</value>
+  </data>
+  <data name="bad_response_file_upload_type_required" xml:space="preserve">
+    <value>File upload type is required.</value>
+  </data>
+  <data name="bad_response_firstname_required" xml:space="preserve">
+    <value>Firstname is required field.</value>
+  </data>
+  <data name="bad_response_first_name_required" xml:space="preserve">
+    <value>FirstName field is required</value>
+  </data>
+  <data name="bad_response_housename_required" xml:space="preserve">
+    <value>House name is required field</value>
+  </data>
+  <data name="bad_response_housenumber_required" xml:space="preserve">
+    <value>House Number is required field</value>
+  </data>
+  <data name="bad_response_id_required" xml:space="preserve">
+    <value>Id is required field.</value>
+  </data>
+  <data name="bad_response_invalid_device_type" xml:space="preserve">
+    <value>Invalid Device Type</value>
+  </data>
+  <data name="bad_response_invalid_email" xml:space="preserve">
+    <value>Please provide a valid Email.</value>
+  </data>
+  <data name="bad_response_invalid_mobile_number" xml:space="preserve">
+    <value>Mobile number length shound be grater than or equal to 10 digits.</value>
+  </data>
+  <data name="bad_response_invalid_username" xml:space="preserve">
+    <value>Your Username is Invalid.</value>
+  </data>
+  <data name="bad_response_islpg_required" xml:space="preserve">
+    <value>Lpg connection is required field</value>
+  </data>
+  <data name="bad_response_language_required" xml:space="preserve">
+    <value>Language is required field.</value>
+  </data>
+  <data name="bad_response_last_name_required" xml:space="preserve">
+    <value>LastName field is required</value>
+  </data>
+  <data name="bad_response_merchant_id_invalid" xml:space="preserve">
+    <value>Merchant Is Invalid</value>
+  </data>
+  <data name="bad_response_mobile_required" xml:space="preserve">
+    <value>Mobile number is required field.</value>
+  </data>
+  <data name="bad_response_multiple_company_tariff_is_dafault_not_allowed" xml:space="preserve">
+    <value>Multiple default values are not allowed for company tariff.</value>
+  </data>
+  <data name="bad_response_name_required" xml:space="preserve">
+    <value>Name is required field.</value>
+  </data>
+  <data name="bad_response_not_authorised_add_customer" xml:space="preserve">
+    <value>You are not authorised to add Customer.</value>
+  </data>
+  <data name="bad_response_old_password_required" xml:space="preserve">
+    <value>Old password is requied.</value>
+  </data>
+  <data name="bad_response_password_required" xml:space="preserve">
+    <value>Password is required field</value>
+  </data>
+  <data name="bad_response_passwprd_not_match" xml:space="preserve">
+    <value>Your password and confirmation password do not match.</value>
+  </data>
+  <data name="bad_response_paymentmode_required" xml:space="preserve">
+    <value>Payment mode is required field</value>
+  </data>
+  <data name="bad_response_paymenttype_required" xml:space="preserve">
+    <value>Payment Type is required field</value>
+  </data>
+  <data name="bad_response_permissions_required" xml:space="preserve">
+    <value>Permissions field is required</value>
+  </data>
+  <data name="bad_response_pincode_required" xml:space="preserve">
+    <value>Pincode is required field</value>
+  </data>
+  <data name="bad_response_premiseid_required" xml:space="preserve">
+    <value>Premise is required field</value>
+  </data>
+  <data name="bad_response_primarymobile_required" xml:space="preserve">
+    <value>Primary Mobile Number is required field.</value>
+  </data>
+  <data name="bad_response_primary_mobile_required" xml:space="preserve">
+    <value>Primay Mobile Number is required field.</value>
+  </data>
+  <data name="bad_response_proofs_required" xml:space="preserve">
+    <value>Proofs are required.</value>
+  </data>
+  <data name="bad_response_rateid_required" xml:space="preserve">
+    <value>RateId is required field</value>
+  </data>
+  <data name="bad_response_role_required" xml:space="preserve">
+    <value>Role field is required</value>
+  </data>
+  <data name="bad_response_secondarymobile_required" xml:space="preserve">
+    <value>Secondary Mobile Number is required field</value>
+  </data>
+  <data name="bad_response_segmentid_required" xml:space="preserve">
+    <value>Segment is required field</value>
+  </data>
+  <data name="bad_response_status_required" xml:space="preserve">
+    <value>Status is required field</value>
+  </data>
+  <data name="bad_response_streetid_required" xml:space="preserve">
+    <value>StreetId is required field</value>
+  </data>
+  <data name="bad_response_surname_required" xml:space="preserve">
+    <value>Surname is required field.</value>
+  </data>
+  <data name="bad_response_terms_condition_required" xml:space="preserve">
+    <value>Terms Conditions is required field.</value>
+  </data>
+  <data name="bad_response_title_required" xml:space="preserve">
+    <value>Title is required field.</value>
+  </data>
+  <data name="bad_response_username_required" xml:space="preserve">
+    <value>Username is required.</value>
+  </data>
+  <data name="email_admin_invite" xml:space="preserve">
+    <value>Invitation to Login</value>
+  </data>
+  <data name="email_customer_form_submitted" xml:space="preserve">
+    <value>Registration Done</value>
+  </data>
+  <data name="email_payment_failed" xml:space="preserve">
+    <value>Payment Failed</value>
+  </data>
+  <data name="email_payment_initiate" xml:space="preserve">
+    <value>Payment Initiated</value>
+  </data>
+  <data name="email_payment_success" xml:space="preserve">
+    <value>Payment Successful</value>
+  </data>
+  <data name="email_sap_error_log" xml:space="preserve">
+    <value>Sap File Error Found</value>
+  </data>
+  <data name="email_sub_change_email" xml:space="preserve">
+    <value>Password Is Changed.</value>
+  </data>
+  <data name="email_sub_change_password" xml:space="preserve">
+    <value>Account Password Is Changed</value>
+  </data>
+  <data name="email_sub_reset_password" xml:space="preserve">
+    <value>Reset Password Request.</value>
+  </data>
+  <data name="email_user_register" xml:space="preserve">
+    <value>Your registration is successfully completed with The Voice.</value>
+  </data>
+  <data name="error_access_token_expired" xml:space="preserve">
+    <value>Your access token is expired, please login again.</value>
+  </data>
+  <data name="error_bad_register" xml:space="preserve">
+    <value>There is some issues with register</value>
+  </data>
+  <data name="error_bad_update_profile" xml:space="preserve">
+    <value>There is some issues with Update Profile</value>
+  </data>
+  <data name="error_empty_request" xml:space="preserve">
+    <value>Please fill all the required fields.</value>
+  </data>
+  <data name="error_invalid_login" xml:space="preserve">
+    <value>Username or password is invalid.</value>
+  </data>
+  <data name="error_token_expired" xml:space="preserve">
+    <value>Your token is expired.</value>
+  </data>
+  <data name="forbid_error_access" xml:space="preserve">
+    <value>You are not authorised to access this content.</value>
+  </data>
+  <data name="notification_customer_form_status_change" xml:space="preserve">
+    <value>{0} 's registration has been submitted by {1}.</value>
+  </data>
+  <data name="notification_payment_failed" xml:space="preserve">
+    <value>Payment has been failed of Customer Form.</value>
+  </data>
+  <data name="notification_payment_successful" xml:space="preserve">
+    <value>Payment has been made by Customer Successfully.</value>
+  </data>
+  <data name="notification_user_create" xml:space="preserve">
+    <value>User {0} is added as {1} by {2}</value>
+  </data>
+  <data name="ok_response_changed_password" xml:space="preserve">
+    <value>Your password has been changed successfully.</value>
+  </data>
+  <data name="ok_response_forgot_password" xml:space="preserve">
+    <value>Email is sent to {0}</value>
+  </data>
+  <data name="ok_response_get_profile" xml:space="preserve">
+    <value>Your Profile details here.</value>
+  </data>
+  <data name="ok_response_login" xml:space="preserve">
+    <value>You are Logged In !</value>
+  </data>
+  <data name="ok_response_logout" xml:space="preserve">
+    <value>You are successfully logged out!</value>
+  </data>
+  <data name="ok_response_register" xml:space="preserve">
+    <value>You are registered successfully !</value>
+  </data>
+  <data name="ok_response_request_performed_successfully" xml:space="preserve">
+    <value>Your request has been performed successfully.</value>
+  </data>
+  <data name="ok_response_update_password" xml:space="preserve">
+    <value>Your Profile is Updated successfully.</value>
+  </data>
+  <data name="payment_response_error_at_billdesk" xml:space="preserve">
+    <value>Error at BillDesk</value>
+  </data>
+  <data name="payment_response_invalid_authentication" xml:space="preserve">
+    <value>Invalid Authentication at Bank</value>
+  </data>
+  <data name="payment_response_invalid_request" xml:space="preserve">
+    <value>Invalid Input in the Request Message</value>
+  </data>
+  <data name="payment_response_waiting_for_response" xml:space="preserve">
+    <value>BillDesk is waiting for Response from Bank</value>
+  </data>
+  <data name="sms_notification_dma_staff_password_sent" xml:space="preserve">
+    <value>Your The Voice application password is {0}. The Voice.</value>
+    <comment>Your The Voice application password is {password}. The Voice.</comment>
+  </data>
+  <data name="sms_notification_dma_staff_registered" xml:space="preserve">
+    <value>Congratulations! Your registration for the The Voice application is successful. Here is your UserId is {0} and Password is {1} to login in Application. The Voice.</value>
+    <comment>Congratulations! Your registration for the The Voice application is successful. Here is your UserId is {UserId} and Password is {password} to login in Application. The Voice.</comment>
+  </data>
+  <data name="sms_notification_payment_status_update" xml:space="preserve">
+    <value>Your payment of {0} is {1}. The Voice.</value>
+    <comment>Your payment of {amount} is {status}. The Voice.</comment>
+  </data>
+  <data name="sms_notification_registration_message" xml:space="preserve">
+    <value>Congratulations! Your registration form is submitted successfully. Click the below link to download your registration form {0} The Voice.</value>
+    <comment>Congratulations! Your registration form is submitted successfully. Click the below link to download your registration form {link}. The Voice.</comment>
+  </data>
+  <data name="sms_notification_registration_message_1" xml:space="preserve">
+    <value>Congratulations! Your registration form is submitted successfully. Your registered application number is {0}. Thank you for choosing The Voice.</value>
+  </data>
+  <data name="sms_notification_sent_payment_link" xml:space="preserve">
+    <value>Congratulations! You are just one step away from your registration with The Voice, Pay your amount by clicking on the below link {0} The Voice.</value>
+    <comment>Congratulations! You are just one step away from your registration with The Voice, Pay your amount by clicking on the below link {link}. The Voice.</comment>
+  </data>
+  <data name="sms_notification_user_registered" xml:space="preserve">
+    <value>Congratulations! Your registration for the The Voice application is successful. Your Email is {0} and Password is {1} to login in Application. The Voice.</value>
+  </data>
+  <data name="sql_error_application_number_invalid" xml:space="preserve">
+    <value>Application Number is invalid.</value>
+  </data>
+  <data name="sql_error_customer_record_not_found" xml:space="preserve">
+    <value>Customer Record Not Found.</value>
+  </data>
+  <data name="sql_error_document_already_exists" xml:space="preserve">
+    <value>Document Already Exists.</value>
+  </data>
+  <data name="sql_error_email_already_exists" xml:space="preserve">
+    <value>Email Already Exists.</value>
+  </data>
+  <data name="sql_error_email_not_found" xml:space="preserve">
+    <value>Email not found.</value>
+  </data>
+  <data name="sql_error_fb_id_already_exists" xml:space="preserve">
+    <value>Fb Id is Already Exists.</value>
+  </data>
+  <data name="sql_error_lpgagency_already_exists" xml:space="preserve">
+    <value>LPG Agency Already Exists.</value>
+  </data>
+  <data name="sql_error_mobile_number_already_exists" xml:space="preserve">
+    <value>Mobile number is Already Exists.</value>
+  </data>
+  <data name="sql_error_password_invalid" xml:space="preserve">
+    <value>Password is invalid.</value>
+  </data>
+  <data name="sql_error_payment_processed" xml:space="preserve">
+    <value>Your payment is processed.</value>
+  </data>
+  <data name="sql_error_premise_already_exists" xml:space="preserve">
+    <value>Premise Already Exists.</value>
+  </data>
+  <data name="sql_error_provide_valid_old_password" xml:space="preserve">
+    <value>Current Password is Invalid.</value>
+  </data>
+  <data name="sql_error_record_not_found" xml:space="preserve">
+    <value>Record not found.</value>
+  </data>
+  <data name="sql_error_segment_already_exists" xml:space="preserve">
+    <value>Segment Already Exists.</value>
+  </data>
+  <data name="sql_error_username_already_exists" xml:space="preserve">
+    <value>Username is Already Exists.</value>
+  </data>
+  <data name="sql_error_user_already_exists" xml:space="preserve">
+    <value>User Already Exists.</value>
+  </data>
+  <data name="sql_error_user_deactivated" xml:space="preserve">
+    <value>You're account has been deactivated, please contact Admin.</value>
+  </data>
+  <data name="sql_error_user_deleted" xml:space="preserve">
+    <value>User account is deleted by Admin. Contact your admin for further process.</value>
+  </data>
+  <data name="sql_error_user_not_found" xml:space="preserve">
+    <value>Account not found on provided details.</value>
+  </data>
+</root>

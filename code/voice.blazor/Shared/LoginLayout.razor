@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+
+@using Blazored.Toast.Configuration;
+
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="3"
+                RemoveToastsOnNavigation="false" />
+
+<div class="login login-6 login-signin-on login-signin-on d-flex flex-column-fluid" id="kt_login">
+    <div class="d-flex flex-column flex-lg-row flex-row-fluid text-center login-background">
+        <!--begin:Aside-->
+        <div class="d-flex w-100 flex-center p-15">
+            <div class="login-wrapper">
+                <!--begin:Aside Content-->
+                <div class="text-dark-75">
+                    <a href="#">
+                        <img src="assets/media/logos/logo.png" class="max-h-295px" alt="" />
+                    </a>
+                    <h3 class="mb-8 mt-22 font-weight-bold">The Voice Admin Panel</h3>
+                    <p class="mb-15 text-muted font-weight-bold"></p>
+                    @*<button type="button" id="kt_login_signup" class="btn btn-outline-primary btn-pill py-4 px-9 font-weight-bold">Get An Account</button>    *@
+                </div>
+                <!--end:Aside Content-->
+            </div>
+        </div>
+        <!--end:Aside-->
+        <!--begin:Divider-->
+        <div class="login-divider">
+            <div></div>
+        </div>
+        <!--end:Divider-->
+        <div class="d-flex w-100 flex-center p-15 position-relative overflow-hidden">
+            <div class="login-wrapper">
+                @Body
+            </div>
+        </div>
+    </div>
+</div>

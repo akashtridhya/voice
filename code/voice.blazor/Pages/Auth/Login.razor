@@ -1,0 +1,89 @@
+﻿@page "/"
+
+@using voice.blazor.Models.Account
+@using voice.blazor.Models.Account.Shared
+@using voice.blazor.Helpers;
+@using Newtonsoft.Json;
+
+@inject NavigationManager NavManager
+@inject SessionToken SessionToken
+@inject IToastService toastService
+
+@layout LoginLayout
+
+<EditForm Model="@loginreq">
+    <DataAnnotationsValidator />
+    <!--begin:Sign In Form-->
+    <div class="login-signin">
+        <div class="text-center mb-10 mb-lg-20">
+            <h2 class="font-weight-bold">Sign In</h2>
+            <p class="text-muted font-weight-bold">Enter your username and password</p>
+        </div>
+        <div class="form text-left" id="kt_login_signin_form">
+            <div class="form-group py-2 m-0">
+                <InputText class="form-control h-auto border-0 px-0 placeholder-dark-75" type="text" placeholder="Username" name="username" @bind-Value="@loginreq.Username" autocomplete="off" />
+                <ValidationMessage For="@(() => loginreq.Username)" />
+            </div>
+            <div class="form-group py-2 border-top m-0">
+                <InputText class="form-control h-auto border-0 px-0 placeholder-dark-75" type="Password" placeholder="Password" @bind-Value="@loginreq.Password" name="password" />
+                <ValidationMessage For="@(() => loginreq.Password)" />
+            </div>
+            <div class="form-group d-flex flex-wrap justify-content-between align-items-center mt-5">
+                <div class="checkbox-inline">
+                    <label class="checkbox m-0 text-muted font-weight-bold">
+                        <input type="checkbox" name="remember" />
+                        <span></span>Remember me
+                    </label>
+                </div>
+                <a href="javascript:;" id="kt_login_forgot" class="text-muted text-hover-primary font-weight-bold">Forget Password ?</a>
+            </div>
+            <div class="text-center mt-15">
+                <button type="submit" @onclick="DoLogin" class="btn btn-primary btn-pill shadow-sm py-4 px-9 font-weight-bold">Sign In</button>
+            </div>
+        </div>
+        <!--end:Sign In Form-->
+        <!--begin:Forgot Password Form-->
+        <div class="login-forgot">
+            <div class="text-center mb-10 mb-lg-20">
+                <h3 class="">Forgotten Password ?</h3>
+                <p class="text-muted font-weight-bold">Enter your email to reset your password</p>
+            </div>
+            <div class="form text-left" id="kt_login_forgot_form">
+                <div class="form-group py-2 m-0 border-bottom">
+                    <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="text" placeholder="Email" id="email" name="email" autocomplete="off" />
+                </div>
+                <div class="form-group d-flex flex-wrap flex-center mt-10">
+                    <button onclick="ForgetPassword()" class="btn btn-primary btn-pill font-weight-bold px-9 py-4 my-3 mx-2">Submit</button>
+                    <button id="kt_login_forgot_cancel" class="btn btn-outline-primary btn-pill font-weight-bold px-9 py-4 my-3 mx-2">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <!--end:Forgot Password Form-->
+    </div>
+</EditForm>
+
+@code
+{
+    LoginRequest loginreq = new LoginRequest();
+
+    protected override void OnInitialized()
+    {
+        if (!string.IsNullOrWhiteSpace(SessionToken.Token)) NavManager.NavigateTo("/dashboard/index");
+    }
+
+    private async Task DoLogin()
+    {
+        var result = await AccountHelpers.LoginAPI(loginreq);
+        if (result.meta.statusCode != 200)
+        {
+            toastService.ShowError(result.meta.message[0]);
+            NavManager.NavigateTo("/");
+        }
+        else
+        {
+            var response = JsonConvert.DeserializeObject<LoginResponse>(result.data);
+            SessionToken.Token = response.token;
+            NavManager.NavigateTo("/dashboard/index");
+        }
+    }
+}

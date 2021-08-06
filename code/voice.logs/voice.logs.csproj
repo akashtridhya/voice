@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configurations>Debug;Release;Stag;Qa;Production</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\voice.dapper\voice.dapper.csproj" />
+    <ProjectReference Include="..\voice.models\voice.models.csproj" />
+  </ItemGroup>
+
+</Project>

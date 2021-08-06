@@ -1,0 +1,202 @@
+﻿@page "/users-list"
+
+@using voice.blazor.Helpers;
+@using Newtonsoft.Json;
+@using voice.blazor.Models.Account.Shared;
+@using voice.blazor.Models.Users.Response;
+
+@inject NavigationManager NavManager
+@inject SessionToken SessionToken
+@inject IToastService toastService
+@inject IJSRuntime JSRunTime
+
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Card-->
+        <div class="card card-custom">
+            <!--begin::Header-->
+            <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                <div class="card-title">
+                    <h3 class="card-label">
+                        User Management
+                        <span class="d-block text-muted pt-2 font-size-sm">User management made easy</span>
+                    </h3>
+                </div>
+            </div>
+            <!--end::Header-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Subheader-->
+                <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+                    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                        <!--begin::Details-->
+                        <div class="d-flex align-items-center flex-wrap mr-2">
+                            <!--begin::Title-->
+                            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">User Management</h5>
+                            <!--end::Title-->
+                            <!--begin::Separator-->
+                            <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
+                            <!--end::Separator-->
+                            <!--begin::Search Form-->
+                            <div class="d-flex align-items-center" id="kt_subheader_search">
+                                @*<span class="text-dark-50 font-weight-bold" id="kt_subheader_total">1240 Total</span>*@
+                                <form class="ml-5">
+                                    <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
+                                        <input type="text" class="form-control" id="kt_datatable_search_query" placeholder="Search..." />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <span class="svg-icon">
+                                                    <!--begin::Svg Icon | path:assets/media/svg/icons/General/Search.svg-->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24" />
+                                                            <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                            <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" />
+                                                        </g>
+                                                    </svg>
+                                                    <!--end::Svg Icon-->
+                                                </span>
+                                                <!--<i class="flaticon2-search-1 icon-sm"></i>-->
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--end::Search Form-->
+                        </div>
+                    </div>
+                </div>
+                <!--end::Subheader-->
+                <!--begin::Entry-->
+                <div class="d-flex flex-column-fluid">
+                    <!--begin::Container-->
+                    <div class="container">
+                        <!--begin::Card-->
+                        <div class="card card-custom gutter-b">
+                            <!--begin::Body-->
+                            <div class="card-body">
+                                <!--begin: Datatable-->
+                                <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable"></div>
+                                @if (response.details != null)
+                                {
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>USERNAME</th>
+                                                <th>CUSTOMER</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var number = 1;
+                                                @foreach (var user in response.details)
+                                                {
+                                                    <tr>
+                                                        <td>@number</td>
+                                                        <td>@user.Username</td>
+                                                        <td>@user.FirstName @user.LastName</td>
+                                                    </tr>
+                                                    number++;
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                <!--end: Datatable-->
+                            </div>
+                            <!--end::Body-->
+                        </div>
+                        <!--end::Card-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Entry-->
+                <!-- Modal-->
+                <div class="modal fade" id="exampleModalCustomScrollable" tabindex="-1" role="dialog" aria-labelledby="staticBackdrop" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i aria-hidden="true" class="ki ki-close"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div data-scroll="true" data-height="550">
+                                    <!--begin::Form-->
+                                    <div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label>Username<span class="text-danger">*</span></label>
+                                                <input name="username" type="text" class="form-control" placeholder="Enter username" />
+                                                <input name="id" type="text" class="form-control" placeholder="Enter username" hidden />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email address <span class="text-danger">*</span></label>
+                                                <input type="email" name="email" class="form-control" placeholder="Enter email" />
+                                                <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>First Name <span class="text-danger">*</span></label>
+                                                <input name="firstname" type="text" class="form-control" placeholder="Enter First Name" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Last Name <span class="text-danger">*</span></label>
+                                                <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Birthdate<span class="text-danger">*</span></label>
+                                                <input type="text" name="birthDate" class="form-control" placeholder="Enter Birthdate" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>House Number<span class="text-danger">*</span></label>
+                                                <input type="number" name="houseNumber" class="form-control" placeholder="Enter House Number" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Postcode<span class="text-danger">*</span></label>
+                                                <input type="number" name="postcode" class="form-control" placeholder="Enter Postcode" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address Line 1<span class="text-danger">*</span></label>
+                                                <input type="text" name="address1" class="form-control" placeholder="Enter Adress Line 1" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address Line 2<span class="text-danger">*</span></label>
+                                                <input type="text" name="address2" class="form-control" placeholder="Enter Adress Line 2" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address Line 3<span class="text-danger">*</span></label>
+                                                <input type="text" name="address3" class="form-control" placeholder="Enter Adress Line 3" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Form-->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+                                        <button type="button" onclick="updateUser()" class="btn btn-primary font-weight-bold">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    UsersListResponse response = new UsersListResponse();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(SessionToken.Token))
+        {
+            var usersList = await UsersHelpers.UserList(SessionToken.Token);
+            response = JsonConvert.DeserializeObject<UsersListResponse>(usersList.data);
+        }
+        else
+            NavManager.NavigateTo("/");
+    }
+}

@@ -1,0 +1,33 @@
+﻿@page "/fetchdata"
+
+@using voice.blazor.Data
+
+@inject WeatherForecastService ForecastService
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div style="padding:20px">
+        <DataTable TModel="WeatherForecast" Items="forecasts" UsePaging="true" PageSize="5" Styles="TableStyle.Striped">
+            <DataTableColumn TModel="WeatherForecast" Property="(e) => e.Date" />
+            <DataTableColumn TModel="WeatherForecast" Property="(e) => e.TemperatureC" CustomTitle="Celsius" />
+            <DataTableColumn TModel="WeatherForecast" Property="(e) => e.TemperatureF" CustomTitle="Fahrenheit" />
+        </DataTable>
+    </div>
+}
+
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Error";
+    bool sessionExpired = ViewBag.SessionExpired != null && ViewBag.SessionExpired == true;
+    bool forbidden = ViewBag.Forbidden != null && ViewBag.Forbidden == true;
+}
+
+@if (sessionExpired)
+{
+    <section class="error-section enable-js d-flex justify-content-center align-items-center text-center">
+        <div>
+            <h3 class="info">
+                Your Session has been expired OR Your Account has been deactivated.<br />
+                You'll be redirected to the <br />
+                <strong>Login page</strong>
+            </h3>
+            <h3 class="m-0"><a href="@Url.Action("LogOut","Dashboard")" class="btn btn-primary btn-lg" onclick="localStorage.clear();">Ok, I understand</a></h3>
+        </div>
+    </section>
+}
+else if (forbidden)
+{
+    <section class="error-section enable-js d-flex justify-content-center align-items-center text-center">
+        <div>
+            <h3 class="info">
+                You are not authorised to access this content.
+            </h3>
+            <h3 class="m-0">@Html.ActionLink("Go back to Dashboard", "Index", "Dashboard")</h3>
+        </div>
+    </section>
+}
+else
+{
+    <section class="error-section enable-js d-flex justify-content-center align-items-center text-center">
+        <div>
+            @*<img src="~/images/404-artwork.svg" alt="404">*@
+            <h3 class="info">
+                We are sorry, <br />
+                But the page you were looking for was not found!…
+            </h3>
+            <h3 class="m-0">@Html.ActionLink("Go back to Dashboard", "Index", "Dashboard")</h3>
+        </div>
+    </section>
+}

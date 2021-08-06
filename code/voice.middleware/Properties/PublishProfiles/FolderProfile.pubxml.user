@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Yudiz\2. Publish\V\Voice\Debug\Middleware</_PublishTargetUrl>
+    <History>True|2021-08-05T14:07:58.6260074Z;True|2021-08-04T18:16:54.2026129+05:30;True|2021-08-04T18:15:31.0512533+05:30;True|2021-08-04T12:59:35.9500128+05:30;True|2021-08-04T12:35:40.2472869+05:30;True|2021-07-29T16:10:46.4968780+05:30;True|2021-07-28T19:44:26.7108686+05:30;True|2021-07-28T17:26:50.0200446+05:30;True|2021-07-28T14:39:03.0571708+05:30;True|2021-07-27T16:31:04.1241534+05:30;True|2021-07-27T16:28:42.4378660+05:30;True|2021-07-23T18:41:45.4293980+05:30;True|2021-07-22T18:07:45.7636505+05:30;True|2021-07-20T19:32:14.1337625+05:30;True|2021-07-15T19:20:15.1107928+05:30;True|2021-07-09T15:21:01.1602341+05:30;True|2021-07-01T16:56:01.5653294+05:30;True|2021-06-30T12:27:04.6520163+05:30;</History>
+  </PropertyGroup>
+</Project>

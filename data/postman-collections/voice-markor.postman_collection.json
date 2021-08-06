@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "578d62a4-b3a5-4178-963f-17969b05ea69",
+		"name": "voice-markor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dateOfBirth\": \"1984-05-17\",\r\n  \"firstName\": \"juj\",\r\n  \"lastName\": \"tyymk\",\r\n  \"title\": \"Mr\",\r\n  \"addressLine1\": \"43643\",\r\n  \"addressLine2\": \"\",\r\n  \"addressLine3\": \"\",\r\n  \"addressLine4\": \"63643\",\r\n  \"city\": \"63463\",\r\n  \"houseNumber\": \"sgsgh\",\r\n  \"mobilePhoneNumber\": \"757475489\",\r\n  \"postCode\": \"t4636\",\r\n  \"email\": \"player@apmk.com\",\r\n  \"password\": \"Password1\",\r\n  \"accountSystemTag\": \"JACKPOTMOLLY-CASINO\",\r\n  \"contactableByOthers\": true,\r\n  \"contactableByUs\": true,\r\n  \"contactableBySms\": true,\r\n  \"contactableByPost\": true,\r\n  \"contactableByCall\": true,\r\n  \"platformTag\": \"DESK\",\r\n  \"termsAndCondsVersion\": 24,\r\n  \"privacyPolicyVersion\": 5,\r\n  \"lang\": \"en\",\r\n  \"currencyCode\": \"CAD\",\r\n  \"countryCode\": \"CAN\",\r\n  \"countryCallingCode\": 353\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-qa.jackpotmolly.com/revolve/api/register/lite",
+							"protocol": "https",
+							"host": [
+								"api-qa",
+								"jackpotmolly",
+								"com"
+							],
+							"path": [
+								"revolve",
+								"api",
+								"register",
+								"lite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"login.accountSystemTag\": \"JACKPOTMOLLY-CASINO\",\r\n  \"login.password\": \"Password1\",\r\n  \"login.platformTag\": \"DESK\",\r\n  \"login.principle\": \"player@apmk.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-qa.jackpotmolly.com/revolve/api/account/login",
+							"protocol": "https",
+							"host": [
+								"api-qa",
+								"jackpotmolly",
+								"com"
+							],
+							"path": [
+								"revolve",
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game Slot list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "testKey",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://elite-api.uat.markortech.com/games-connect/api/v1/gamelist/lottostudios-site",
+					"protocol": "https",
+					"host": [
+						"elite-api",
+						"uat",
+						"markortech",
+						"com"
+					],
+					"path": [
+						"games-connect",
+						"api",
+						"v1",
+						"gamelist",
+						"lottostudios-site"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
